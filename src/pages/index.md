@@ -1,7 +1,8 @@
 ---
 templateKey: index-page
-title: Great coffee with a conscience
-image: /img/home-jumbotron.jpg
+title: Welcome to Doug's
+subtitle: Community-centered convenience for your food, beer, and grocery needs.
+image: /img/landing-banner.jpg
 heading: Great coffee with a vengeance
 subheading: Support sustainable farming while enjoying a cup
 mainpitch:
