@@ -1,3 +1,5 @@
+const path = require('path')
+
 module.exports = {
   siteMetadata: {
     title: 'Gatsby + Netlify CMS Starter',
@@ -14,6 +16,18 @@ module.exports = {
         path: `${__dirname}/static/img`,
         name: 'uploads',
       },
+    },
+    {
+      resolve: 'gatsby-plugin-root-import',
+      options: {
+        '@cms': path.join(__dirname, 'src/cms'),
+        '@pages': path.join(__dirname, 'src/pages'),
+        '@components': path.join(__dirname, 'src/components'),
+        '@img': path.join(__dirname, 'src/img'),
+        '@styles': path.join(__dirname, 'src/styles'),
+        '@templates': path.join(__dirname, 'src/templates'),
+        '@static': path.join(__dirname, 'static'),
+      }
     },
     {
       resolve: 'gatsby-source-filesystem',

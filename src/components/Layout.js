@@ -1,11 +1,11 @@
 import React from 'react'
-import SiteHead from '../components/SiteHead'
-import Footer from '../components/Footer'
-import Navbar from '../components/Navbar'
+import SiteHead from '@components/SiteHead'
+import Footer from '@components/Footer'
+import Navbar from '@components/Navbar'
 import 'reset-css'
-import '../styles/global.scss'
+import '@styles/global.scss'
 import styled from 'styled-components'
-import breakpoint from '../styles/breakpoint'
+import breakpoint from '@styles/breakpoint'
 
 const Layout = styled.div`
   position: relative;

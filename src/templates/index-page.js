@@ -2,9 +2,9 @@ import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
 
-import Layout from '../components/Layout'
-import Features from '../components/Features'
-import Hero from '../components/Hero'
+import Layout from '@components/Layout'
+import Features from '@components/Features'
+import Hero from '@components/Hero'
 
 export const IndexPageTemplate = ({
   image,

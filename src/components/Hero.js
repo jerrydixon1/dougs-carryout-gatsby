@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import { lightColor } from '../styles/colors'
-import breakpoint from '../styles/breakpoint'
+import { lightColor } from '@styles/colors'
+import breakpoint from '@styles/breakpoint'
 
 const Hero = styled.header`
   width: 100%;
