@@ -1,55 +1,78 @@
 import React from 'react'
-import { Helmet } from 'react-helmet'
+import SiteHead from '../components/SiteHead'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
-import './all.sass'
-import useSiteMetadata from './SiteMetadata'
-import { withPrefix } from 'gatsby'
+import 'reset-css'
+import '../styles/global.scss'
+import styled from 'styled-components'
+
+const Layout = styled.div`
+  position: relative;
+  main {
+    width: 100%;
+    padding-left: $nav-width;
+    color: $c-primary;
+    transition: $transition-normal;
+    @include breakpoint(md) {
+      padding-left: 0;
+    }
+  }
+  h1 {
+    letter-spacing: 6px;
+    font-size: 62px;
+    line-height: 68px;
+  }
+
+  h2 {
+    letter-spacing: 4.37px;
+    font-size: 38px;
+    line-height: 44px;
+  }
+
+  .body {
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: lighter;
+  }
+
+  .list-item {
+    font-size: 25px;
+    line-height: 30px;
+    letter-spacing: 0.75px;
+    font-weight: lighter;
+  }
+
+  .icon-text {
+    font-size: 28px;
+    line-height: 34px;
+    font-size: 500;
+    position: relative;
+    padding-left: 32px;
+    .icon {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 34px;
+    }
+  }
+
+  .container {
+    padding-top: 50px;
+    padding-bottom: 0;
+    &:last-child {
+      padding-bottom: 50px;
+    }
+  }
+`
 
 const TemplateWrapper = ({ children }) => {
-  const { title, description } = useSiteMetadata()
   return (
-    <div>
-      <Helmet>
-        <html lang="en" />
-        <title>{title}</title>
-        <meta name="description" content={description} />
-
-        <link
-          rel="apple-touch-icon"
-          sizes="180x180"
-          href={`${withPrefix('/')}img/apple-touch-icon.png`}
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          href={`${withPrefix('/')}img/favicon-32x32.png`}
-          sizes="32x32"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          href={`${withPrefix('/')}img/favicon-16x16.png`}
-          sizes="16x16"
-        />
-
-        <link
-          rel="mask-icon"
-          href={`${withPrefix('/')}img/safari-pinned-tab.svg`}
-          color="#ff4400"
-        />
-        <meta name="theme-color" content="#fff" />
-
-        <meta property="og:type" content="business.business" />
-        <meta property="og:title" content={title} />
-        <meta property="og:url" content="/" />
-        <meta
-          property="og:image"
-          content={`${withPrefix('/')}img/og-image.jpg`}
-        />
-      </Helmet>
+    <Layout>
+      <SiteHead />
+      {/* TODO add SideNav component */}
       <div>{children}</div>
-    </div>
+      {/* TODO add Footer component */}
+    </Layout>
   )
 }
 

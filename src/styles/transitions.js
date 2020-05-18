@@ -1,0 +1,1 @@
+export const transitionNormal = '0.3s'
