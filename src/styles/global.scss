@@ -21,3 +21,38 @@ body {
   padding:0;
   line-height: 1.5;
 }
+
+@mixin breakpoint($max: 0, $min: 0) {
+  $type: type-of($max);
+  
+  @if $type == string {
+    @if $max == xs { 
+      @media (max-width: 767px) { @content; }       // Mobile Devices
+    }
+    
+    @else if $max == sm {
+      @media (max-width: 991px) { @content; }       // Tablet Devices
+    }
+    
+    @else if $max == md {
+      @media (max-width: 1139px) { @content; }       // Desktops
+    }
+    
+    @else if $max == lg {
+      @media (min-width: 1140) { @content; }      // Widescreen Desktops
+    }
+  
+    // Otherwise pass a warning to the compiler as to the appropriate options
+    @else {
+      @warn "The breakpoint mixin supports the following attributes: xs, sm, md, lg";
+    }
+  }
+  @else if $type == number {
+    // Allow for custom parameters for min and max size
+    $query: "all" !default;
+    @if      $min != 0 and $max != 0 { $query: "(min-width: #{$min}) and (max-width: #{$max})"; } // set both min and max
+    @else if $min != 0 and $max == 0 { $query: "(min-width: #{$min})"; } // set just min
+    @else if $min == 0 and $max != 0 { $query: "(max-width: #{$max})"; } // set just max
+    @media #{$query} { @content; }
+  }
+}

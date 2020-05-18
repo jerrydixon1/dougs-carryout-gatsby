@@ -5,6 +5,7 @@ import Navbar from '../components/Navbar'
 import 'reset-css'
 import '../styles/global.scss'
 import styled from 'styled-components'
+import breakpoint from '../styles/breakpoint'
 
 const Layout = styled.div`
   position: relative;
@@ -63,6 +64,25 @@ const Layout = styled.div`
       padding-bottom: 50px;
     }
   }
+
+  ${breakpoint('xs')`
+    h1 {
+      font-size: 42px;
+      line-height: 48px;
+      letter-spacing: 5px;
+    }
+    
+    h2 {
+      letter-spacing: 3.25px;
+      font-size: 32px;
+      line-height: 38px;
+    }
+
+    .body {
+      font-size: 18px;
+      line-height: 22px;
+    }
+  `}
 `
 
 const TemplateWrapper = ({ children }) => {
