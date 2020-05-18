@@ -1,22 +1,25 @@
 import React from 'react'
 import SiteHead from '@components/SiteHead'
 import Footer from '@components/Footer'
-import Navbar from '@components/Navbar'
+import Nav from '@components/Nav'
 import 'reset-css'
 import '@styles/global.scss'
 import styled from 'styled-components'
 import breakpoint from '@styles/breakpoint'
+import { navWidth } from '@styles/sizings'
+import { primaryColor } from '@styles/colors'
+import { transitionNormal } from '@styles/transitions'
 
 const Layout = styled.div`
   position: relative;
   main {
     width: 100%;
-    padding-left: $nav-width;
-    color: $c-primary;
-    transition: $transition-normal;
-    @include breakpoint(md) {
+    padding-left: ${navWidth};
+    color: ${primaryColor};
+    transition: ${transitionNormal};
+    ${breakpoint('md')`
       padding-left: 0;
-    }
+    `}
   }
   h1 {
     letter-spacing: 6px;
@@ -89,8 +92,8 @@ const TemplateWrapper = ({ children }) => {
   return (
     <Layout>
       <SiteHead />
-      {/* TODO add SideNav component */}
-      <div>{children}</div>
+      <Nav />
+      <main>{children}</main>
       {/* TODO add Footer component */}
     </Layout>
   )
