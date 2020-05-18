@@ -1,16 +1,11 @@
-import React from 'react'
-import SiteHead from '@components/SiteHead'
-import Footer from '@components/Footer'
-import Nav from '@components/Nav'
-import 'reset-css'
-import '@styles/global.scss'
 import styled from 'styled-components'
 import breakpoint from '@styles/breakpoint'
 import { navWidth } from '@styles/sizings'
 import { primaryColor } from '@styles/colors'
 import { transitionNormal } from '@styles/transitions'
+import '@styles/global.scss'
 
-const Layout = styled.div`
+export const LayoutWrap = styled.div`
   position: relative;
   main {
     width: 100%;
@@ -87,16 +82,3 @@ const Layout = styled.div`
     }
   `}
 `
-
-const TemplateWrapper = ({ children }) => {
-  return (
-    <Layout>
-      <SiteHead />
-      <Nav />
-      <main>{children}</main>
-      {/* TODO add Footer component */}
-    </Layout>
-  )
-}
-
-export default TemplateWrapper
