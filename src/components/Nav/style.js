@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import breakpoint from '@styles/breakpoint'
 import { navWidth, fontSemibold } from '@styles/sizings'
 import { transitionNormal } from '@styles/transitions'
 import { accentColor, lightColor } from '@styles/colors'

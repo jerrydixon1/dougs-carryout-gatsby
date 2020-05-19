@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 
 import Layout from '@components/Layout'
-import Features from '@components/Features'
 import Hero from '@components/Hero'
+import About from '@components/About'
 
 export const IndexPageTemplate = ({
   image,
@@ -14,6 +14,7 @@ export const IndexPageTemplate = ({
 }) => (
   <Fragment>
     <Hero title={title} subtitle={subtitle} image={image?.childImageSharp?.fluid?.src ?? image} />
+    <About {...about} />
   </Fragment>
 )
 
@@ -65,7 +66,13 @@ export const pageQuery = graphql`
         about {
           title
           description
-          image
+          image {
+            childImageSharp {
+              fluid(maxWidth: 254, quality: 100) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
         }
       }
     }
