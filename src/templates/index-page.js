@@ -10,11 +10,7 @@ export const IndexPageTemplate = ({
   image,
   title,
   subtitle,
-  heading,
-  subheading,
-  mainpitch,
-  description,
-  intro,
+  about
 }) => (
   <Fragment>
     <Hero title={title} subtitle={subtitle} image={image?.childImageSharp?.fluid?.src ?? image} />
@@ -25,13 +21,7 @@ IndexPageTemplate.propTypes = {
   image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   title: PropTypes.string,
   subtitle: PropTypes.string,
-  heading: PropTypes.string,
-  subheading: PropTypes.string,
-  mainpitch: PropTypes.object,
-  description: PropTypes.string,
-  intro: PropTypes.shape({
-    blurbs: PropTypes.array,
-  }),
+  about: PropTypes.object
 }
 
 const IndexPage = ({ data }) => {
@@ -43,11 +33,7 @@ const IndexPage = ({ data }) => {
         image={frontmatter.image}
         title={frontmatter.title}
         subtitle={frontmatter.subtitle}
-        heading={frontmatter.heading}
-        subheading={frontmatter.subheading}
-        mainpitch={frontmatter.mainpitch}
-        description={frontmatter.description}
-        intro={frontmatter.intro}
+        about={frontmatter.about}
       />
     </Layout>
   )
@@ -76,26 +62,10 @@ export const pageQuery = graphql`
             }
           }
         }
-        heading
-        subheading
-        mainpitch {
+        about {
           title
           description
-        }
-        description
-        intro {
-          blurbs {
-            image {
-              childImageSharp {
-                fluid(maxWidth: 240, quality: 64) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-            text
-          }
-          heading
-          description
+          image
         }
       }
     }
